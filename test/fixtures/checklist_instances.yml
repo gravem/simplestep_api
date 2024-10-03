@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  checklist_template: one
+  started_at: 2024-10-03 14:27:29
+  completed_at: 2024-10-03 14:27:29
+
+two:
+  user: two
+  checklist_template: two
+  started_at: 2024-10-03 14:27:29
+  completed_at: 2024-10-03 14:27:29
