@@ -40,4 +40,5 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
-
+gem "solargraph", group: :development
+gem "devise"
