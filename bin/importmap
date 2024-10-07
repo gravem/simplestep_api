@@ -1,0 +1,14 @@
+# Simple script for managing import maps
+require 'fileutils'
+
+def audit
+  # Add logic for auditing import maps here
+  puts "Audit import maps..."
+end
+
+case ARGV.first
+when 'audit'
+  audit
+else
+  puts "Unknown command. Available commands: audit"
+end
