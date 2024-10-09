@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 # Simple script for managing import maps
 require 'fileutils'
 
