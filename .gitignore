@@ -31,3 +31,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore chrome system test file
+google-chrome-stable_current_amd64.deb
