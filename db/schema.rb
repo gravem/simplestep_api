@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_03_132740) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_10_154508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: :cascade do |t|
+    t.integer "assigner_id", null: false
+    t.integer "assignee_id", null: false
+    t.bigint "checklist_instance_id", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assignee_id"], name: "index_assignments_on_assignee_id"
+    t.index ["assigner_id"], name: "index_assignments_on_assigner_id"
+    t.index ["checklist_instance_id"], name: "index_assignments_on_checklist_instance_id"
+  end
 
   create_table "checklist_instances", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -66,6 +78,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_03_132740) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assignments", "checklist_instances"
+  add_foreign_key "assignments", "users", column: "assignee_id"
+  add_foreign_key "assignments", "users", column: "assigner_id"
   add_foreign_key "checklist_instances", "checklist_templates"
   add_foreign_key "checklist_instances", "users"
   add_foreign_key "checklist_templates", "users"
